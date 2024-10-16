@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+<style>
+  p {
+    font-weight: 900;
+    color: brown;
+    font-size: large;
+  }
+</style>
+  </head>
+  <body>
+    <p class="js-today-date"></p>
+    <p class="js-tomorrow-date"></p>
+    <a href="checkout.html" target="_self">
+   <div style="padding: 50px;"
+   ><p>Eric is a boy</p></div> 
+  </a>
+    <script type="module">
+     import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+
+     import isSatSun from './15f.js'
+
+    const date = dayjs().add(3, 'days')
+    const properFormat = date.format('dddd')
+    console.log(properFormat);
+
+
+    let today = dayjs();
+    console.log(dayjs().format('dddd'))
+    document.querySelector('.js-today-date').innerHTML = today;
+   
+    
+    console.log(isSatSun(today))
+
+    const eka = dayjs().add(1, 'days')
+    document.querySelector('.js-tomorrow-date').innerHTML = eka
+    
+
+    console.log(eka.format('dddd'));
+    console.log(isSatSun(eka));
+
+    const eric = dayjs().subtract(25, 'days')
+    console.log(eric.format('dddd'));
+    console.log(isSatSun(eric));
+    
+  
+
+
+
+    </script>
+  </body>
+</html>
